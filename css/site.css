@@ -1,0 +1,14 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.calculadora {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: black solid;
+    background-color: aqua;
+}
+
+.entradas {
+    padding: 10px;
+}
