@@ -9,6 +9,31 @@ body{
     background-color: aqua;
 }
 
-.entradas {
+.entrada {
     padding: 10px;
 }
+
+.reserva {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    margin-top: 100px;
+    background-color: cadetblue;
+    border: 5px solid orange;
+}
+
+.cabeceraHotel {
+    margin-left: 20px;
+}
+
+.selec {
+    margin: 20px 20px 10px 20px;
+}
+
+.selecInt {
+    margin-left: 20px 20px 20px 20px;
+}
+
+.numNo {
+    margin: 20px 20px 10px 20px;
+}
+
