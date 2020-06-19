@@ -73,3 +73,59 @@ document.getElementById("botonResta").addEventListener("click", recogerInputRest
 document.getElementById("botonMultiplicacion").addEventListener("click", recogerInputMultiplicacion);
 document.getElementById("botonDivision").addEventListener("click", recogerInputDivision); 
 document.getElementById("botonResultado").addEventListener("click", mostrarResultado);
+
+
+///////////////////////HOTEL//////////////////////////
+
+var elegido=0;
+var costeParcial=0;
+var costeFinal =0;
+
+function recogerInputTipoHabitacion(){
+        elegido = document.formulario.selecc.value; 
+        costeParcial = suma(costeParcial, parseInt(elegido)); 
+        document.getElementById("PrecioFinal").innerText = costeParcial;
+        return costeParcial;     
+}
+
+function recogerInputSpa(){
+    var checkBox = document.getElementById("spa");
+    if(checkBox.checked){
+        costeParcial = suma(recogerInputTipoHabitacion() , 20);
+        document.getElementById("PrecioFinal").innerText = costeParcial;
+        return costeParcial;    
+    }
+    else{
+        console.log("SEGUNDO");
+    }
+}
+
+function recogerInputOcupacion(){
+    var ocupado = document.formulario.ocupa.value; 
+    var ocu = recogerInputSpa();
+    switch(ocupado){
+        case "simple": 
+            costeParcial = resta(ocu, ((ocu*25)/100));
+            console.log(costeParcial);
+            return costeParcial;
+            break;
+        case "doble":
+            costeParcial = ocu;
+            return costeParcial;
+            break;
+        case "triple":
+            costeParcial = suma(ocu, ((ocu*25)/100));
+            return costeParcial;
+            break;
+    }
+
+    document.getElementById("PrecioFinal").innerText = costeParcial;
+    return costeParcial;     
+}
+
+
+
+
+
+
+document.getElementById("calcular").addEventListener("click", recogerInputOcupacion);

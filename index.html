@@ -28,49 +28,53 @@
             <h3 id="resultado"></h3>
         </div>  
     </div>
-    <div class="reserva">
-        <header class="cabeceraHotel">
-            <h2>Formulario de reserva</h2>
-        </header>
-        <div class="Hotel">
-            <div class="entradaHotel">
-                <div class="selec">
-                    <label for="selecc">Elija tipo de Habitación</label>
-                    <select name="selecc" id="seleccion" class="selecInt">
-                        <option value="habS">Standard</option>
-                        <option value="habJS">Junior Suite</option>
-                        <option value="habS">Suite</option>
-                    </select>
+    <form name="formulario">
+        <div class="reserva">
+            <header class="cabeceraHotel">
+                <h2>Formulario de reserva</h2>
+            </header>
+            <div class="Hotel">
+                <div class="entradaHotel">
+                    <div class="selec">
+                        <label for="selecc">Elija tipo de Habitación</label>
+                        <select name="selecc" id="seleccion" class="selecInt">
+                            <option value="100">Standard</option>
+                            <option value="120">Junior Suite</option>
+                            <option value="150">Suite</option>
+                        </select>
+                    </div>
+                    <div class="selec">
+                        <label for="checkSpa">Desea reservar SPA</label>
+                        <input type="checkbox" name="checkSpa" id="spa" class="selecInt">
+                    </div>
+                    <div class="selec">
+                        <label for="ocupa">Elija ocupación de la Habitación</label>
+                        <select name="ocupa" id="ocupacion" class="selecInt">
+                            <option value="simple">Individual</option>
+                            <option value="doble">Doble</option>
+                            <option value="triple">Triple</option>
+                        </select>
+                    </div>
+                    <div class="selec">
+                        <label>Introduzca número de noches</label>
+                        <input type="number" id="numeroNoc" class="selecInt">
+                    </div>
+                    <div class="selec">
+                        <label>Introduzca número de noches de parking</label>
+                        <input type="number" id="numeroPark" class="selecInt">
+                        
+                    </div>
                 </div>
                 <div class="selec">
-                    <label for="checkSpa">Desea reservar SPA</label>
-                    <input type="checkbox" name="checkSpa" id="spa" class="selecInt">
+                    <button type="submit" id="calcular">Calcular Precio</button>
+                    
                 </div>
-                <div class="selec">
-                    <label for="ocupa">Elija ocupación de la Habitación</label>
-                    <select name="ocupa" id="ocupacion" class="selecInt">
-                        <option value="habS">Individual</option>
-                        <option value="habJS">Doble</option>
-                        <option value="habS">Triple</option>
-                    </select>
-                </div>
-                <div class="selec">
-                    <label>Introduzca número de noches</label>
-                    <input type="number" id="numero" class="selecInt">
-                </div>
-                <div class="selec">
-                    <label>Introduzca número de noches de parking</label>
-                    <input type="number" id="numero" class="selecInt">
+                  <div class="result">
+                    <h3 id="PrecioFinal">Precio</h3>
+                  </div>  
                 </div>
             </div>
-            <div class="selec">
-                <button type="submit" id="calcular">Calcular Precio</button>
-                <h4>Precio</h4>
-            </div>
-                
-            </div>
-        </div>
-            
+        </form>   
     <script src="js/demo.js"></script>
 </body>
 </html>
