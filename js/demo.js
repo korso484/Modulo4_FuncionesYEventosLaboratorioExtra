@@ -96,7 +96,8 @@ function recogerInputSpa(){
         return costeParcial;    
     }
     else{
-        console.log("SEGUNDO");
+        costeParcial = recogerInputTipoHabitacion();
+        return costeParcial;
     }
 }
 
@@ -106,7 +107,6 @@ function recogerInputOcupacion(){
     switch(ocupado){
         case "simple": 
             costeParcial = resta(ocu, ((ocu*25)/100));
-            console.log(costeParcial);
             return costeParcial;
             break;
         case "doble":
@@ -117,10 +117,26 @@ function recogerInputOcupacion(){
             costeParcial = suma(ocu, ((ocu*25)/100));
             return costeParcial;
             break;
-    }
+    }   
+}
 
+function recogerInputNoches(){
+    var contador = document.formulario.noches.value; 
+    var ocu = recogerInputOcupacion();
+    costeParcial = multiplicacion(ocu, parseInt(contador));
+    return costeParcial;
+}
+
+function recogerInputParking(){
+    var contador = multiplicacion(10,parseInt(document.formulario.parking.value)); 
+    var ocu = recogerInputNoches();
+    costeParcial = suma(ocu, parseInt(contador));
+    return costeParcial;
+}
+
+function precioTotal(){
+    costeParcial = recogerInputParking();
     document.getElementById("PrecioFinal").innerText = costeParcial;
-    return costeParcial;     
 }
 
 
@@ -128,4 +144,4 @@ function recogerInputOcupacion(){
 
 
 
-document.getElementById("calcular").addEventListener("click", recogerInputOcupacion);
+document.getElementById("calcular").addEventListener("click", precioTotal);
