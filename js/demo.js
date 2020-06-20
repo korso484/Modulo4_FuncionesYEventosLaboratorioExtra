@@ -9,7 +9,7 @@ let resulParcial = 0;
 let resulFinal=0;
 
 
-
+//Funciones para recoger valores 
 function recogerInputSuma(){
     //obtener primer numero
     var get1 = parseInt(document.getElementById("numero1").value);  
@@ -62,12 +62,13 @@ function recogerInputDivision(){
     } 
 }
 
+//Función Mostrar resultado al pulsar botón =
 function mostrarResultado(operador){
     document.getElementById("resultado").innerText = resulParcial;
 }
 
  
-
+//Eventos asociados
 document.getElementById("botonSuma").addEventListener("click", recogerInputSuma);
 document.getElementById("botonResta").addEventListener("click", recogerInputResta); 
 document.getElementById("botonMultiplicacion").addEventListener("click", recogerInputMultiplicacion);
@@ -77,15 +78,26 @@ document.getElementById("botonResultado").addEventListener("click", mostrarResul
 
 ///////////////////////HOTEL//////////////////////////
 
+//Inicializamos variables 
 var elegido=0;
 var costeParcial=0;
-var costeFinal =0;
 
+//Recogemos Inputs
 function recogerInputTipoHabitacion(){
+    if(elegido == 0){
         elegido = document.formulario.selecc.value; 
         costeParcial = suma(costeParcial, parseInt(elegido)); 
         document.getElementById("PrecioFinal").innerText = costeParcial;
-        return costeParcial;     
+        return costeParcial;
+    }else{
+        costeParcial = 0;
+        document.getElementById("seleccion").addEventListener("change", recogerInputTipoHabitacion);
+        elegido = document.formulario.selecc.value; 
+        costeParcial = suma(costeParcial, parseInt(elegido)); 
+        document.getElementById("PrecioFinal").innerText = costeParcial;
+        return costeParcial;
+    }
+               
 }
 
 function recogerInputSpa(){
@@ -97,6 +109,7 @@ function recogerInputSpa(){
     }
     else{
         costeParcial = recogerInputTipoHabitacion();
+        document.getElementById("PrecioFinal").innerText = costeParcial;
         return costeParcial;
     }
 }
@@ -124,6 +137,7 @@ function recogerInputNoches(){
     var contador = document.formulario.noches.value; 
     var ocu = recogerInputOcupacion();
     costeParcial = multiplicacion(ocu, parseInt(contador));
+    document.getElementById("PrecioFinal").innerText = costeParcial;
     return costeParcial;
 }
 
@@ -131,17 +145,22 @@ function recogerInputParking(){
     var contador = multiplicacion(10,parseInt(document.formulario.parking.value)); 
     var ocu = recogerInputNoches();
     costeParcial = suma(ocu, parseInt(contador));
+    document.getElementById("PrecioFinal").innerText = costeParcial;
     return costeParcial;
 }
 
+//Pintamos precio total
 function precioTotal(){
     costeParcial = recogerInputParking();
     document.getElementById("PrecioFinal").innerText = costeParcial;
 }
 
+//Eventos asociados
+document.getElementById("seleccion").addEventListener("change", recogerInputTipoHabitacion);
+document.getElementById("spa").addEventListener("change", recogerInputSpa);
+document.getElementById("numeroNoc").addEventListener("change", recogerInputNoches);
+document.getElementById("numeroPark").addEventListener("change", recogerInputParking);
 
 
-
-
-
-document.getElementById("calcular").addEventListener("click", precioTotal);
+/*Mostrar con botón el resultado
+document.getElementById("calcular").addEventListener("click", precioTotal);*/
